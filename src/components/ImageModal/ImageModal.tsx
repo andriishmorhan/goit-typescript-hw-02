@@ -1,13 +1,30 @@
 import css from "./ImageModal.module.css";
-import Modal from 'react-modal';
+import Modal from "react-modal";
+
+interface Props {
+  isOpen: boolean;
+  onClose: () => void;
+  content: {
+    description: string;
+    urls: {
+      small: string;
+      regular: string;
+    };
+    user: {
+      last_name: string;
+    };
+    links: {
+      download: string;
+    };
+  };
+}
+Modal.setAppElement("#root");
 
 export const ImageModal = ({
   isOpen,
   onClose,
   content: { description, urls, user, links },
-}) => {
-  Modal.setAppElement("#root");
-
+}: Props) => {
   const handleDownloadClick = () => {
     window.open(links.download, "_blank");
   };

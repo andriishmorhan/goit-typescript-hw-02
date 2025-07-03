@@ -1,7 +1,29 @@
 import { ImageCard } from "../ImageCard/ImageCard";
 import css from "./ImageGallery.module.css";
 
-export const ImageGallery = ({ gallery, onOpen }) => {
+interface Data {
+  id: string;
+  description: string;
+  likes: number;
+  urls: {
+    small: string;
+    regular: string;
+  };
+
+  user: {
+    last_name: string;
+  };
+  links: {
+    download: string;
+  };
+}
+
+interface Props {
+  gallery: Data[];
+  onOpen: (image: Data) => void;
+}
+
+export const ImageGallery = ({ gallery, onOpen }: Props) => {
   return (
     <ul className={css.gallery}>
       {gallery.map((item) => (

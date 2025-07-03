@@ -1,5 +1,26 @@
 import css from "./ImageCard.module.css";
 
+interface Data {
+  id: string;
+  description: string;
+  likes: number;
+  urls: {
+    small: string;
+    regular: string;
+  };
+  user: {
+    last_name: string;
+  };
+  links: {
+    download: string;
+  };
+}
+
+interface Props {
+  imageCard: Data;
+  onOpen: (image: Data) => void;
+}
+
 export const ImageCard = ({
   onOpen,
   imageCard,
@@ -10,7 +31,7 @@ export const ImageCard = ({
     user: { last_name },
     links: { download },
   },
-}) => {
+}: Props) => {
   const handleDownloadClick = () => {
     window.open(download, "_blank");
   };
