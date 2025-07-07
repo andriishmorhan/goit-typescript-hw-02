@@ -38,11 +38,9 @@ export const SearchBar = ({ onSubmit }: Props) => {
             />
             <FaSearch className={css.icon} />
           </div>
-          <ErrorMessage
-            name="query"
-            component="span"
-            style={{ color: "red" }}
-          />
+          <ErrorMessage name="query">
+            {(msg) => <span style={{ color: "red" }}>{msg}</span>}
+          </ErrorMessage>
           <button className={css.button} type="submit">
             Search
           </button>
