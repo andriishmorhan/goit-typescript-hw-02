@@ -1,22 +1,11 @@
 import css from "./ImageModal.module.css";
 import Modal from "react-modal";
+import { Data } from "../../types";
 
 interface Props {
   isOpen: boolean;
   onClose: () => void;
-  content: {
-    description: string;
-    urls: {
-      small: string;
-      regular: string;
-    };
-    user: {
-      last_name: string;
-    };
-    links: {
-      download: string;
-    };
-  };
+  content: Data;
 }
 Modal.setAppElement("#root");
 

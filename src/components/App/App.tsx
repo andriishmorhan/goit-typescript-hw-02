@@ -8,22 +8,7 @@ import { Loader } from "../Loader/Loader";
 import { LoadMoreBtn } from "../LoadMoreBtn/LoadMoreBtn";
 import { Toaster } from "react-hot-toast";
 import { ImageModal } from "../ImageModal/ImageModal";
-
-interface Data {
-  id: string;
-  description: string;
-  likes: number;
-  urls: {
-    small: string;
-    regular: string;
-  };
-  user: {
-    last_name: string;
-  };
-  links: {
-    download: string;
-  };
-}
+import { Data, ResponseData } from "../../types";
 
 export const App = () => {
   const [images, setImages] = useState<Data[]>([]);
@@ -43,13 +28,7 @@ export const App = () => {
     const getData = async () => {
       try {
         setLoader(true);
-        const {
-          imageData,
-          totalPages,
-        }: { imageData: Data[]; totalPages: number } = await fetchImages(
-          query,
-          page
-        );
+        const { imageData, totalPages } = await fetchImages(query, page);
 
         setImages((prevImages) => {
           return [...prevImages, ...imageData];

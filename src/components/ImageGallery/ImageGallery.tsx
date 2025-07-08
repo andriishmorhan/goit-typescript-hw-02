@@ -1,22 +1,6 @@
 import { ImageCard } from "../ImageCard/ImageCard";
 import css from "./ImageGallery.module.css";
-
-interface Data {
-  id: string;
-  description: string;
-  likes: number;
-  urls: {
-    small: string;
-    regular: string;
-  };
-
-  user: {
-    last_name: string;
-  };
-  links: {
-    download: string;
-  };
-}
+import { Data } from "../../types";
 
 interface Props {
   gallery: Data[];
